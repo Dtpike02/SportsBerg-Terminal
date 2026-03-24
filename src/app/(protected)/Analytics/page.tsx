@@ -80,9 +80,9 @@ export default function AnalyticsPage() {
   const runAnalytics = useCallback(async () => {
     setLoading(true);
     try {
-      const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;
+
       const bookieKeys = "draftkings,fanduel,betmgm,williamhill_us,betrivers,espnbet,fanatics,hardrockbet";
-      const res = await fetch(`https://api.the-odds-api.com/v4/sports/${activeLeague}/odds/?apiKey=${apiKey}&regions=us&bookmakers=${bookieKeys}&markets=h2h&oddsFormat=american`);
+      const res = await fetch(`/api/odds?sport=${activeLeague}&markets=h2h`);
       const events: OddsEvent[] = await res.json();
 
       if (!Array.isArray(events) || events.length === 0) {

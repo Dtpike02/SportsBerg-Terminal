@@ -43,9 +43,7 @@ export default function ScreenerPage() {
     async function fetchScreener() {
       try {
         const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;
-        const res = await fetch(
-          `https://api.the-odds-api.com/v4/sports/upcoming/odds/?apiKey=${apiKey}&regions=us&bookmakers=draftkings,fanduel,betmgm,williamhill_us,betrivers,espnbet,fanatics,hardrockbet&markets=h2h&oddsFormat=american`
-        );
+        const res = await fetch(`/api/odds?endpoint=screener`);
         const json = await res.json();
         if (Array.isArray(json)) setData(json);
       } catch (err) {

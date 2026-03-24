@@ -23,7 +23,7 @@ export default function MarketsPage() {
     async function fetchSports() {
       try {
         const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;
-        const res = await fetch(`https://api.the-odds-api.com/v4/sports/?apiKey=${apiKey}`);
+        const res = await fetch(`/api/odds?endpoint=sports`);
         const data = await res.json();
         
         // Safety check: The Odds API sometimes returns an object with an 'message' key on error

@@ -27,7 +27,7 @@ export default clerkMiddleware(async (auth, req) => {
     worker-src 'self' blob:;
     style-src 'self' 'unsafe-inline';
     img-src 'self' db.clerk.com https://img.clerk.com;
-    connect-src 'self' https://*.clerk.accounts.dev https://api.the-odds-api.com;
+    connect-src 'self' https://*.clerk.accounts.dev https://api.the-odds-api.com; https://clerk-telemetry.com
     frame-src 'self' https://*.clerk.accounts.dev;
   `.replace(/\s{2,}/g, ' ').trim();
 
